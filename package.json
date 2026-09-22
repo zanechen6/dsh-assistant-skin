@@ -1,0 +1,67 @@
+{
+  "name": "dsh-assistant-skin",
+  "version": "0.1.0",
+  "description": "为 DSH Web GUI 换上一套「助理皮肤」：黑蓝暗调主题 + 会话区形象（静图/循环片段）+ 形象切换 + 常驻与稀有触发的动作调度。不改 DSH 源码，卸载即还原。",
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "theme",
+    "skin",
+    "assistant",
+    "ui"
+  ],
+  "type": "module",
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-sidebar",
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-theme"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "files": [
+    "lib",
+    "assets/looks",
+    "preview",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "NOTICE.md"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanechen6/dsh-assistant-skin.git"
+  },
+  "homepage": "https://github.com/zanechen6/dsh-assistant-skin",
+  "bugs": {
+    "url": "https://github.com/zanechen6/dsh-assistant-skin/issues"
+  }
+}

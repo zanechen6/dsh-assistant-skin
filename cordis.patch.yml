@@ -1,0 +1,22 @@
+# dsh-assistant-skin bundle patch：把双面插件行插入 profile roster。
+# 作为 profile bundle layer（package.json 的 dsh.bundle.patch 清单字段）套在
+# dsh-base 之上。安装/卸载见 README「安装与回退」。
+#
+# 行为裸插件按包名：node 半（exports "."）跑在宿主进程，只挂两条只读路由；
+# package.json 里的 dsh.client 声明让浏览器半（exports "./client"）以
+# /plugins/assistant-skin/client.js 载入 Web GUI。
+#
+# config 段是**显式来源**：内置默认值已在 lib/index.js，这里把生效值写出来，
+# 方便你直接改这一处（改完重启 dsh 生效）。也可用 ~/.dsh/dsh-assistant-skin.json
+# 覆盖，但那样值会分散在两处，除临时试用不建议。
+#
+# 形象**不在这里列**：宿主半按 assets/looks/ 的文件名扫描（look-<id>.jpg / .mp4），
+# 丢一个文件进去就多一个形象，不需要动配置。
+- insert:
+    - id: assistant-skin
+      name: 'dsh-assistant-skin'
+      config:
+        enabled: true
+        assistantName: 小汐
+        assistantTagline: 你的本地 AI 助理
+        theme: molan
