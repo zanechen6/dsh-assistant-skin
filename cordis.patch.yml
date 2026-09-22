@@ -20,3 +20,5 @@
         assistantName: 小汐
         assistantTagline: 你的本地 AI 助理
         theme: molan
+        # 常驻状态播哪条片段（breathe / breatheSlow / blink）。常驻占 98% 的时间。
+        idleAction: breathe

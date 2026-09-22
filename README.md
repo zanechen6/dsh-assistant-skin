@@ -61,7 +61,10 @@ cd ~/deepseek-harness && ./start-web.sh
     assistantName: 小汐          # 目前只用于记录；侧栏品牌位已归还 DSH
     assistantTagline: 你的本地 AI 助理
     theme: molan                 # molan(墨蓝) / ouhe(藕荷) / moyu(墨玉) / qingyu(青玉)
+    idleAction: breathe          # 常驻（"她平时什么样"）用哪条片段，见下
 ```
+
+`idleAction` 决定**常驻状态**播哪一条片段。常驻占 98% 的时间，所以这一条基本决定了她的日常观感——想要更静就换成 `breatheSlow`（呼吸更浅）或 `blink`（只眨眼，几乎完全不动）。给的名字不存在时按 `breathe` → 任意常驻 → 第一条 依次回退。
 
 **形象不在这里列**——宿主半按 `assets/looks/` 的文件名扫描：
 
@@ -83,7 +86,7 @@ look-02.breathe.mp4
 2. 重启 dsh，刷新页面——静图就能用了；
 3. 想要动起来：用 DSH 的画布工作室插件（`dsh-short-video-studio`）或自己的 ComfyUI 生成循环片段，命名成 `look-01.<动作名>.mp4` 放进去。
 
-动作名只影响排序（`breathe` / `breatheSlow` / `blink` 被当作**常驻**动作，其余都算**会吸引注意力**的动作）。不想要"偶尔动一下"的话，只放常驻片段即可。
+动作名决定它的**角色**：`breathe` / `breatheSlow` / `blink` 被当作**常驻**动作（几乎不动，只是安静待着），其余都算**会吸引注意力**的动作，只在偶尔与点击时触发。想让她更静，就放几条不同的常驻片段再用 `idleAction` 选其中一条。
 
 ## 能力边界（诚实说明）
 
